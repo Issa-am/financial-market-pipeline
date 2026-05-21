@@ -1,0 +1,106 @@
+[0m19:23:18.718736 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000242AEEA2AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000242B25C31D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000242B25C2F10>]}
+
+
+============================== 19:23:18.725318 | d83235ee-6fcd-418b-86b9-d70dfb16cff2 ==============================
+[0m19:23:18.725318 [info ] [MainThread]: Running with dbt=1.11.8
+[0m19:23:18.726306 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\amjad\\.dbt', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt init financial_market_dbt', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m19:23:18.784319 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\amjad\.dbt
+[0m19:23:18.787325 [debug] [MainThread]: Starter project path: C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\include\starter_project
+[0m19:23:18.831086 [info ] [MainThread]: 
+Your new dbt project "financial_market_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:23:18.832633 [info ] [MainThread]: Setting up your profile.
+[0m19:25:04.528002 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:25:04.528002 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:25:04.529013 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:27:09.009111 [error] [MainThread]: Encountered an error:
+
+[0m19:27:09.015619 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\cli\main.py", line 488, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\click\termui.py", line 179, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\click\termui.py", line 162, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m19:27:09.018093 [debug] [MainThread]: Command `dbt init` failed at 19:27:09.018093 after 230.52 seconds
+[0m19:27:09.019338 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000242B3615650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000242AB7EA810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000242AB7EA910>]}
+[0m19:27:09.020794 [debug] [MainThread]: Flushing usage events
+[0m19:27:09.240832 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:27:58.749560 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9AAE82F10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9AAE81350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9AE593010>]}
+
+
+============================== 19:27:58.757075 | 57ed9dfd-4ab6-402b-867b-8eebf39ce7a8 ==============================
+[0m19:27:58.757075 [info ] [MainThread]: Running with dbt=1.11.8
+[0m19:27:58.758074 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\amjad\\.dbt', 'use_colors': 'True', 'invocation_command': 'dbt init financial_market_dbt', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m19:27:58.780228 [info ] [MainThread]: A project called financial_market_dbt already exists here.
+[0m19:27:58.781232 [debug] [MainThread]: Command `dbt init` succeeded at 19:27:58.781232 after 0.16 seconds
+[0m19:27:58.781737 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9A783A8D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9A783A7D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9A783A910>]}
+[0m19:27:58.782746 [debug] [MainThread]: Flushing usage events
+[0m19:27:58.899910 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:29:55.209596 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A6975FB50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A699D0E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A699D0B50>]}
+
+
+============================== 19:29:55.214136 | ea9c17e2-9a71-42ad-9843-c07d8b2f511d ==============================
+[0m19:29:55.214136 [info ] [MainThread]: Running with dbt=1.11.8
+[0m19:29:55.215138 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\amjad\\.dbt', 'use_colors': 'True', 'invocation_command': 'dbt init financial_market_dbt2', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m19:29:55.229878 [debug] [MainThread]: Starter project path: C:\Users\amjad\anaconda3\envs\pyspark311\Lib\site-packages\dbt\include\starter_project
+[0m19:29:55.253722 [info ] [MainThread]: 
+Your new dbt project "financial_market_dbt2" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:29:55.253722 [info ] [MainThread]: Setting up your profile.
+[0m19:30:00.108164 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:30:00.109152 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:30:00.109152 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:32:40.358050 [info ] [MainThread]: Profile financial_market_dbt2 written to C:\Users\amjad\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m19:32:40.361472 [debug] [MainThread]: Command `dbt init` succeeded at 19:32:40.361472 after 165.23 seconds
+[0m19:32:40.362472 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A62EF8790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A68AEB1D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A62C1A490>]}
+[0m19:32:40.363479 [debug] [MainThread]: Flushing usage events
+[0m19:32:40.532614 [debug] [MainThread]: An error was encountered while trying to flush usage events
