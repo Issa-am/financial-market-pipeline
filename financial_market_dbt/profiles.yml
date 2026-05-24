@@ -1,0 +1,13 @@
+financial_market_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('DBT_SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('DBT_SNOWFLAKE_USER') }}"
+      password: "{{ env_var('DBT_SNOWFLAKE_PASSWORD') }}"
+      role: ACCOUNTADMIN
+      warehouse: COMPUTE_WH
+      database: financial_market_db
+      schema: raw_data
+      threads: 1
