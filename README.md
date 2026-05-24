@@ -53,7 +53,27 @@ Every push to main branch automatically triggers dbt validation against Snowflak
 
 ## Known Issues and Fixes
 
-During development, pandas saved date columns as nanoseconds in Parquet format, which Snowflake could not parse. Fixed by converting dates to strings using `.dt.strftime('%Y-%m-%d')` before saving to Parquet, then casting to DATE in dbt staging model.
+## Challenges and Solutions
+
+**1. Pandas date format incompatible with Snowflake**
+Pandas stores datetime columns as nanoseconds since epoch in Parquet format. Snowflake could not parse these values and returned "Invalid date" for all rows.
+Fix: Converted dates to strings using `.dt.strftime('%Y-%m-%d')` before saving to Parquet. dbt staging model then casts the string back to DATE type using `::DATE`.
+
+**2. Snowflake COPY INTO date type mismatch**
+Initial table defined date column as DATE type. Parquet nanosecond values could not be cast directly.
+Fix: Changed column type to TIMESTAMP to accept the raw values, then handled type casting in dbt.
+
+**3. CI/CD workflow failed on first run**
+GitHub Actions could not connect to Snowflake because credentials were not available on GitHub's server.
+Fix: Added Snowflake credentials as encrypted GitHub repository secrets and updated profiles.yml to read from environment variables using env_var().
+
+**4. Airflow tasks failed in Docker**
+DAG tasks failed because the Docker container does not have Python scripts or dbt installed inside it.
+Note: In production, an Airflow Docker image would be built with all dependencies pre-installed. For this portfolio project, the DAG code and pipeline architecture are correct.
+
+**5. dbt PATH issue on Windows**
+Running dbt directly on Windows PowerShell failed because Anaconda Scripts folder was not in PATH.
+Fix: Used full path to run all dbt commands.
 
 ## Setup
 
