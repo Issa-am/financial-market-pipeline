@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: financial_market_db
+    schema: raw_data
+    tables:
+      - name: stocks_raw
+        description: "Raw stock data loaded from S3 Parquet files via Snowflake stage"
